@@ -1,0 +1,21 @@
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\Sistema de Gestão.exe.config
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\Sistema de Gestão.exe
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\Sistema de Gestão.pdb
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\obj\Debug\Sistema de Gestão.csprojAssemblyReference.cache
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\obj\Debug\Sistema_de_Gestão.frm_TelaPrincipal.resources
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\obj\Debug\Sistema_de_Gestão.Properties.Resources.resources
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\obj\Debug\Sistema de Gestão.csproj.GenerateResource.cache
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\obj\Debug\Sistema de Gestão.csproj.CoreCompileInputs.cache
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\obj\Debug\Sistema de Gestão.exe
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\obj\Debug\Sistema de Gestão.pdb
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\obj\Debug\Sistema_de_Gestão.Cadastro_de_Pessoas.resources
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\obj\Debug\Sistema_de_Gestão.Cadastro_de_Filhos.resources
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\EntityFramework.dll
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\System.Data.SQLite.dll
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\System.Data.SQLite.EF6.dll
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\EntityFramework.xml
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\System.Data.SQLite.xml
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\obj\Debug\Sistema de Gestão.csproj.CopyComplete
