@@ -19,3 +19,4 @@ D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\EntityFramework.xml
 D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\EntityFramework.SqlServer.xml
 D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\System.Data.SQLite.xml
 D:\Projetos\Sistema de Gestão\Sistema de Gestão\obj\Debug\Sistema de Gestão.csproj.CopyComplete
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\obj\Debug\Sistema_de_Gestão.Gestao_de_Pessoas.resources

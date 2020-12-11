@@ -32,6 +32,8 @@
             this.cADASTROToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pESSOASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fILHOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gESTÃOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pESSOASToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +43,8 @@
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cADASTROToolStripMenuItem});
+            this.cADASTROToolStripMenuItem,
+            this.gESTÃOToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(878, 33);
@@ -60,16 +63,31 @@
             // pESSOASToolStripMenuItem
             // 
             this.pESSOASToolStripMenuItem.Name = "pESSOASToolStripMenuItem";
-            this.pESSOASToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.pESSOASToolStripMenuItem.Size = new System.Drawing.Size(189, 34);
             this.pESSOASToolStripMenuItem.Text = "PESSOAS";
             this.pESSOASToolStripMenuItem.Click += new System.EventHandler(this.pESSOASToolStripMenuItem_Click);
             // 
             // fILHOSToolStripMenuItem
             // 
             this.fILHOSToolStripMenuItem.Name = "fILHOSToolStripMenuItem";
-            this.fILHOSToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.fILHOSToolStripMenuItem.Size = new System.Drawing.Size(189, 34);
             this.fILHOSToolStripMenuItem.Text = "FILHOS";
             this.fILHOSToolStripMenuItem.Click += new System.EventHandler(this.fILHOSToolStripMenuItem_Click);
+            // 
+            // gESTÃOToolStripMenuItem
+            // 
+            this.gESTÃOToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pESSOASToolStripMenuItem1});
+            this.gESTÃOToolStripMenuItem.Name = "gESTÃOToolStripMenuItem";
+            this.gESTÃOToolStripMenuItem.Size = new System.Drawing.Size(93, 29);
+            this.gESTÃOToolStripMenuItem.Text = "GESTÃO";
+            // 
+            // pESSOASToolStripMenuItem1
+            // 
+            this.pESSOASToolStripMenuItem1.Name = "pESSOASToolStripMenuItem1";
+            this.pESSOASToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.pESSOASToolStripMenuItem1.Text = "PESSOAS";
+            this.pESSOASToolStripMenuItem1.Click += new System.EventHandler(this.pESSOASToolStripMenuItem1_Click);
             // 
             // frm_TelaPrincipal
             // 
@@ -98,6 +116,8 @@
         private System.Windows.Forms.ToolStripMenuItem cADASTROToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pESSOASToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fILHOSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gESTÃOToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pESSOASToolStripMenuItem1;
     }
 }
 

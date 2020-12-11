@@ -28,5 +28,11 @@ namespace Sistema_de_Gestão
             Cadastro_de_Filhos cadastro_De_Filhos = new Cadastro_de_Filhos();
             cadastro_De_Filhos.ShowDialog();
         }
+
+        private void pESSOASToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Gestao_de_Pessoas gestao_De_Pessoas = new Gestao_de_Pessoas();
+            gestao_De_Pessoas.ShowDialog();
+        }
     }
 }
