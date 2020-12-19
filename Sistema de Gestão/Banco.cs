@@ -80,7 +80,7 @@ namespace Sistema_de_Gestão
             try
             {
                 var cmd = ConexaoBanco().CreateCommand();
-                cmd.CommandText = "INSERT INTO tb_pessoas (t_nome, t_sobrenome, t_sexo, t_email, t_cpf, t_categoria, t_salariob, t_cep, t_endereco, t_num, t_bairro, t_cidade, t_uf, t_pais, b_filhos ) VALUES (@nome, @sobrenome, @sexo, @cpf, @email, @categoria, @salariobase, @cep, @endereco, @numero, @bairro, @cidade, @uf, @pais, @filho)";
+                cmd.CommandText = "INSERT INTO tb_pessoas (t_nome, t_sobrenome, t_sexo, t_email, t_cpf, t_categoria, t_salariob, t_cep, t_endereco, t_num, t_bairro, t_cidade, t_uf, t_pais, b_filhos ) VALUES (@nome, @sobrenome, @sexo, @email, @cpf, @categoria, @salariobase, @cep, @endereco, @numero, @bairro, @cidade, @uf, @pais, @filho)";
                 cmd.Parameters.AddWithValue("@nome", pessoa.t_nome);
                 cmd.Parameters.AddWithValue("@sobrenome", pessoa.t_sobrenome);
                 cmd.Parameters.AddWithValue("@sexo", pessoa.t_sexo);
@@ -113,7 +113,67 @@ namespace Sistema_de_Gestão
             cmd.CommandText = "SELECT * FROM tb_pessoas WHERE b_filhos = 1 ";
 ;
         }
+        //Funcões do form Gestão de Pessoas
 
-        
+        public static DataTable ObterPessoasIdNomeCategoria()
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = "SELECT n_id_pessoa as 'Código', t_nome as 'NOME', t_categoria as 'CATEGORIA' FROM tb_pessoas";
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static DataTable ObterDadosPessoas(string id)
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = "SELECT * FROM tb_pessoas WHERE n_id_pessoa="+ id;
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static DataTable ObterFilhosPessoas(string id)
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = "SELECT * FROM tb_filhos WHERE t_pai =" + id;
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }
