@@ -80,7 +80,7 @@ namespace Sistema_de_Gestão
             try
             {
                 var cmd = ConexaoBanco().CreateCommand();
-                cmd.CommandText = "INSERT INTO tb_pessoas (t_nome, t_sobrenome, t_sexo, t_email, t_cpf, t_categoria, t_salariob, t_cep, t_endereco, t_num, t_bairro, t_cidade, t_uf, t_pais, b_filhos ) VALUES (@nome, @sobrenome, @sexo, @email, @cpf, @categoria, @salariobase, @cep, @endereco, @numero, @bairro, @cidade, @uf, @pais, @filho)";
+                cmd.CommandText = "INSERT INTO tb_pessoas (t_nome, t_sobrenome, t_sexo, t_email, t_cpf, t_categoria, t_salariob, t_cep, t_endereco, t_num, t_bairro, t_cidade, t_uf, t_pais, b_filhos, t_foto ) VALUES (@nome, @sobrenome, @sexo, @email, @cpf, @categoria, @salariobase, @cep, @endereco, @numero, @bairro, @cidade, @uf, @pais, @filho, @foto)";
                 cmd.Parameters.AddWithValue("@nome", pessoa.t_nome);
                 cmd.Parameters.AddWithValue("@sobrenome", pessoa.t_sobrenome);
                 cmd.Parameters.AddWithValue("@sexo", pessoa.t_sexo);
@@ -96,6 +96,7 @@ namespace Sistema_de_Gestão
                 cmd.Parameters.AddWithValue("uf", pessoa.t_uf);
                 cmd.Parameters.AddWithValue("@pais", pessoa.t_pais);
                 cmd.Parameters.AddWithValue("@filho", pessoa.b_filhos);
+                cmd.Parameters.AddWithValue("@foto", pessoa.t_foto);
 
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Usuario cadastrado com sucesso!");
@@ -174,6 +175,24 @@ namespace Sistema_de_Gestão
                 throw ex;
             }
         }
-
+        public static DataTable ExcluirPessoas(string idSelecionado)
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = "DELETE FROM tb_pessoas WHERE n_id_pessoa =" ;
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

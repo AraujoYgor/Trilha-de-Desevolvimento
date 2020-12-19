@@ -15,7 +15,7 @@ namespace Sistema_de_Gestão
         public string t_email;
         public string t_categoria;
         public string t_salariob;
-        //public string t_foto;
+        public string t_foto;
         public Boolean b_filhos;
         public string t_cep;
         public string t_endereco;

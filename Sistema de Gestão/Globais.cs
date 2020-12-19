@@ -11,7 +11,7 @@ namespace Sistema_de_Gestão
         public static string caminho = System.Environment.CurrentDirectory;
         public static string nomeBanco = "Local.db";
         public static string caminhoBanco = caminho+@"\Banco\";
-
+        public static string caminhoFotos = caminho + @"\Fotos\";
 
     }
 }

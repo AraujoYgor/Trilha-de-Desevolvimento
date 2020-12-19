@@ -438,6 +438,7 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "(*.jpg)|*jpg|(*.png)|*png";
             // 
             // Cadastro_de_Pessoas
             // 

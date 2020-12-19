@@ -7,11 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Sistema_de_Gestão
 {
     public partial class Gestao_de_Pessoas : Form
     {
+        string origemCompleto = "";
+        string foto = "";
+        string pastaDestino = Globais.caminhoFotos;
+        string destinoCompleto = "";
+
         public Gestao_de_Pessoas()
         {
             InitializeComponent();
@@ -47,7 +53,7 @@ namespace Sistema_de_Gestão
                 tb_salariob.Text = dt.Rows[0].Field<string>("t_salarioB").ToString();
                 tb_email.Text = dt.Rows[0].Field<string>("t_email").ToString();
                 mtb_cpf.Text = dt.Rows[0].Field<string>("t_cpf").ToString();
-                mtb_cep.Text = dt.Rows[0].Field<string>("t_cep").ToString();
+                tb_cep.Text = dt.Rows[0].Field<string>("t_cep").ToString();
                 tb_logradouro.Text = dt.Rows[0].Field<string>("t_endereco").ToString();
                 tb_num.Text = dt.Rows[0].Field<string>("t_num").ToString();
                 tb_cidade.Text = dt.Rows[0].Field<string>("t_cidade").ToString();
@@ -56,7 +62,7 @@ namespace Sistema_de_Gestão
                 tb_bairro.Text = dt.Rows[0].Field<string>("t_bairro").ToString();
                 cb_filho.Checked = dt.Rows[0].Field<Boolean>("b_filhos");
                 tb_nome.Text = dt.Rows[0].Field<string>("t_nome").ToString();
-                tb_nome.Text = dt.Rows[0].Field<string>("t_nome").ToString();
+                pb_foto.ImageLocation = dt.Rows[0].Field<string>("t_foto");
             }
 
             DataGridView dgv1 = (DataGridView)sender;
@@ -68,6 +74,92 @@ namespace Sistema_de_Gestão
                 string pId = dgv1.SelectedRows[0].Cells[0].Value.ToString();
                 dt1 = Banco.ObterFilhosPessoas(pId);
             }
+        }
+
+        private void btn_Novo_Click(object sender, EventArgs e)
+        {
+            Cadastro_de_Pessoas cadastro_De_Pessoas = new Cadastro_de_Pessoas();
+            cadastro_De_Pessoas.ShowDialog();
+        }
+
+        private void tn_foto_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                origemCompleto = openFileDialog1.FileName;
+                foto = openFileDialog1.SafeFileName;
+                destinoCompleto = pastaDestino + foto;
+            }
+            if (File.Exists(destinoCompleto))
+            {
+                if (MessageBox.Show("O arquivo ja existe, deseja subistituir", "Subistituir", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    return;
+                }
+            }
+            pb_foto.ImageLocation = origemCompleto;
+        }
+
+        private void btn_salvar_Click(object sender, EventArgs e)
+        {
+            if (destinoCompleto == "")
+            {
+                if (MessageBox.Show("Sem foto selecionada, deseja continuar", "ERRO", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    return;
+                }
+            }
+            if (destinoCompleto != "")
+            {
+                System.IO.File.Copy(origemCompleto, destinoCompleto, true);
+                if (File.Exists(destinoCompleto))
+                {
+                    pb_foto.ImageLocation = destinoCompleto;
+                }
+                else
+                {
+                    if (MessageBox.Show("Erro ao localizar foto, deseja continuar?", "ERRO", MessageBoxButtons.YesNo) == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+            }
+
+
+
+        }
+
+        private void tbn_pes_cep_Click(object sender, EventArgs e)
+        {
+            if (tb_cep.Text == "")
+            {
+                MessageBox.Show("Preencha o CEP");
+            }
+            else if (tb_cep.MaxLength.Equals(7))
+            {
+                MessageBox.Show("O cep deve conter 8 digitos");
+
+            }
+            else
+            {
+                try
+                {
+                    DataSet ds = new DataSet();
+                    string xml = "http://cep.republicavirtual.com.br/web_cep.php?cep=@cep&formato=xml".Replace("@cep", tb_cep.Text);
+
+                    ds.ReadXml(xml);
+                    tb_logradouro.Text = ds.Tables[0].Rows[0]["logradouro"].ToString();
+                    tb_bairro.Text = ds.Tables[0].Rows[0]["bairro"].ToString();
+                    tb_cidade.Text = ds.Tables[0].Rows[0]["cidade"].ToString();
+                    tb_uf.Text = ds.Tables[0].Rows[0]["uf"].ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "CEP não encontrado.");
+                }
+
+            }
+        
         }
     }
 }

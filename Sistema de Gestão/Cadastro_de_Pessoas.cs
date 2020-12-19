@@ -13,6 +13,11 @@ namespace Sistema_de_Gestão
 {
     public partial class Cadastro_de_Pessoas : Form
     {
+        string origemCompleto = "";
+        string foto = "";
+        string pastaDestino = Globais.caminhoFotos;
+        string destinoCompleto = "";
+
         public Cadastro_de_Pessoas()
         {
             InitializeComponent();
@@ -21,6 +26,28 @@ namespace Sistema_de_Gestão
 
         private void btn_salvar_Click(object sender, EventArgs e)
         {
+            if(destinoCompleto == "")
+            {
+                if(MessageBox.Show("Sem foto selecionada, deseja continuar", "ERRO", MessageBoxButtons.YesNo)== DialogResult.No)
+                {
+                    return;
+                }
+            }
+            if(destinoCompleto != "")
+            {
+                System.IO.File.Copy(origemCompleto, destinoCompleto, true);
+                if (File.Exists(destinoCompleto))
+                {
+                    pb_foto.ImageLocation = destinoCompleto;
+                }
+                else
+                {
+                    if (MessageBox.Show("Erro ao localizar foto, deseja continuar?", "ERRO", MessageBoxButtons.YesNo) == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+            }
             Pessoa pessoa = new Pessoa();
 
             pessoa.t_nome = tb_nome.Text;
@@ -38,6 +65,7 @@ namespace Sistema_de_Gestão
             pessoa.t_uf = tb_uf.Text;
             pessoa.t_pais = tb_pais.Text;
             pessoa.b_filhos = cb_filho.Checked;
+            pessoa.t_foto = pb_foto.ImageLocation;
 
             Banco.NovaPessoa(pessoa);
 
@@ -57,7 +85,7 @@ namespace Sistema_de_Gestão
             //cb_cat.Clear();
             //cb_sexo.Clear();
             //cb_sexo
-            //pb_foto.Clear();
+            //pb_foto.;
             cb_filho.Checked = false;
             tb_nome.Focus();
 
@@ -155,7 +183,20 @@ namespace Sistema_de_Gestão
 
         private void btn_foto_Click(object sender, EventArgs e)
         {
-
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                origemCompleto = openFileDialog1.FileName;
+                foto = openFileDialog1.SafeFileName;
+                destinoCompleto = pastaDestino + foto;
+            }
+            if (File.Exists(destinoCompleto))
+            {
+                if(MessageBox.Show("O arquivo ja existe, deseja subistituir", "Subistituir" ,MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    return;
+                }
+            }
+                pb_foto.ImageLocation = origemCompleto;
         }
     }
 }

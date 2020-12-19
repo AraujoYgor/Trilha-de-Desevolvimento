@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label15 = new System.Windows.Forms.Label();
             this.mtb_cpf = new System.Windows.Forms.MaskedTextBox();
             this.cb_filho = new System.Windows.Forms.CheckBox();
@@ -55,7 +55,6 @@
             this.tb_num = new System.Windows.Forms.TextBox();
             this.tb_logradouro = new System.Windows.Forms.TextBox();
             this.tbn_pes_cep = new System.Windows.Forms.Button();
-            this.mtb_cep = new System.Windows.Forms.MaskedTextBox();
             this.tb_email = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -69,7 +68,7 @@
             this.btn_Excluir = new System.Windows.Forms.Button();
             this.btn_Imprimi = new System.Windows.Forms.Button();
             this.btn_Novo = new System.Windows.Forms.Button();
-            this.btn_editar = new System.Windows.Forms.Button();
+            this.btn_salvar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Imprimir = new System.Windows.Forms.Button();
@@ -80,6 +79,8 @@
             this.Filhos = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.tb_id = new System.Windows.Forms.TextBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.tb_cep = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb_foto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_pais)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_Filhos)).BeginInit();
@@ -135,6 +136,7 @@
             this.tn_foto.TabIndex = 57;
             this.tn_foto.Text = "FOTO";
             this.tn_foto.UseVisualStyleBackColor = true;
+            this.tn_foto.Click += new System.EventHandler(this.tn_foto_Click);
             // 
             // pb_foto
             // 
@@ -144,6 +146,7 @@
             this.pb_foto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pb_foto.Name = "pb_foto";
             this.pb_foto.Size = new System.Drawing.Size(155, 206);
+            this.pb_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_foto.TabIndex = 65;
             this.pb_foto.TabStop = false;
             // 
@@ -328,15 +331,7 @@
             this.tbn_pes_cep.TabIndex = 47;
             this.tbn_pes_cep.Text = "Pesquisar";
             this.tbn_pes_cep.UseVisualStyleBackColor = true;
-            // 
-            // mtb_cep
-            // 
-            this.mtb_cep.Location = new System.Drawing.Point(159, 347);
-            this.mtb_cep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.mtb_cep.Mask = "  00.000-000 ";
-            this.mtb_cep.Name = "mtb_cep";
-            this.mtb_cep.Size = new System.Drawing.Size(102, 26);
-            this.mtb_cep.TabIndex = 46;
+            this.tbn_pes_cep.Click += new System.EventHandler(this.tbn_pes_cep_Click);
             // 
             // tb_email
             // 
@@ -384,14 +379,14 @@
             // 
             this.dgw_pais.AllowUserToAddRows = false;
             this.dgw_pais.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgw_pais.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgw_pais.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgw_pais.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgw_pais.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgw_pais.EnableHeadersVisualStyles = false;
@@ -437,7 +432,7 @@
             this.panel1.Controls.Add(this.btn_Excluir);
             this.panel1.Controls.Add(this.btn_Imprimi);
             this.panel1.Controls.Add(this.btn_Novo);
-            this.panel1.Controls.Add(this.btn_editar);
+            this.panel1.Controls.Add(this.btn_salvar);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -482,15 +477,17 @@
             this.btn_Novo.TabIndex = 6;
             this.btn_Novo.Text = "Cadastrar";
             this.btn_Novo.UseVisualStyleBackColor = true;
+            this.btn_Novo.Click += new System.EventHandler(this.btn_Novo_Click);
             // 
-            // btn_editar
+            // btn_salvar
             // 
-            this.btn_editar.Location = new System.Drawing.Point(12, 89);
-            this.btn_editar.Name = "btn_editar";
-            this.btn_editar.Size = new System.Drawing.Size(123, 46);
-            this.btn_editar.TabIndex = 5;
-            this.btn_editar.Text = "Editar";
-            this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_salvar.Location = new System.Drawing.Point(12, 89);
+            this.btn_salvar.Name = "btn_salvar";
+            this.btn_salvar.Size = new System.Drawing.Size(123, 46);
+            this.btn_salvar.TabIndex = 5;
+            this.btn_salvar.Text = "Salvar";
+            this.btn_salvar.UseVisualStyleBackColor = true;
+            this.btn_salvar.Click += new System.EventHandler(this.btn_salvar_Click);
             // 
             // label1
             // 
@@ -590,12 +587,26 @@
             this.tb_id.Size = new System.Drawing.Size(87, 26);
             this.tb_id.TabIndex = 75;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // tb_cep
+            // 
+            this.tb_cep.Location = new System.Drawing.Point(156, 342);
+            this.tb_cep.MaxLength = 8;
+            this.tb_cep.Name = "tb_cep";
+            this.tb_cep.Size = new System.Drawing.Size(107, 26);
+            this.tb_cep.TabIndex = 76;
+            this.tb_cep.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Gestao_de_Pessoas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1025, 632);
+            this.Controls.Add(this.tb_cep);
             this.Controls.Add(this.tb_id);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.Filhos);
@@ -630,7 +641,6 @@
             this.Controls.Add(this.tb_num);
             this.Controls.Add(this.tb_logradouro);
             this.Controls.Add(this.tbn_pes_cep);
-            this.Controls.Add(this.mtb_cep);
             this.Controls.Add(this.tb_email);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -681,7 +691,6 @@
         private System.Windows.Forms.TextBox tb_num;
         private System.Windows.Forms.TextBox tb_logradouro;
         private System.Windows.Forms.Button tbn_pes_cep;
-        private System.Windows.Forms.MaskedTextBox mtb_cep;
         private System.Windows.Forms.TextBox tb_email;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -702,9 +711,11 @@
         private System.Windows.Forms.Button btn_Excluir;
         private System.Windows.Forms.Button btn_Imprimi;
         private System.Windows.Forms.Button btn_Novo;
-        private System.Windows.Forms.Button btn_editar;
+        private System.Windows.Forms.Button btn_salvar;
         private System.Windows.Forms.Button btn_Filhos;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox tb_id;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TextBox tb_cep;
     }
 }
