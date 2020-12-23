@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistema_de_Gestão
+namespace Sistema_de_Gestão.Views
+
+
 {
     public partial class frm_TelaPrincipal : Form
     {
@@ -19,13 +21,13 @@ namespace Sistema_de_Gestão
 
         private void pESSOASToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Cadastro_de_Pessoas cadastro_De_Pessoas = new Cadastro_de_Pessoas();
+            frmCadastroDePessoas cadastro_De_Pessoas = new frmCadastroDePessoas();
             cadastro_De_Pessoas.ShowDialog();
         }
 
         private void fILHOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Cadastro_de_Filhos cadastro_De_Filhos = new Cadastro_de_Filhos();
+            frmCadastroDeFilhos cadastro_De_Filhos = new frmCadastroDeFilhos();
             cadastro_De_Filhos.ShowDialog();
         }
 
@@ -33,6 +35,12 @@ namespace Sistema_de_Gestão
         {
             Gestao_de_Pessoas gestao_De_Pessoas = new Gestao_de_Pessoas();
             gestao_De_Pessoas.ShowDialog();
+        }
+
+        private void sALARIOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Calcular_Salario calcular_Salario = new Calcular_Salario();
+            calcular_Salario.ShowDialog();
         }
     }
 }

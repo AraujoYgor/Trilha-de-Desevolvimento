@@ -16,7 +16,7 @@ namespace Sistema_de_Gestão
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_TelaPrincipal());
+            Application.Run(new Views.frm_TelaPrincipal());
         }
     }
 }

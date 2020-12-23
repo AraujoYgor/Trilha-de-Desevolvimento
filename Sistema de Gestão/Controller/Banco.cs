@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SQLite;
 using System.Windows.Forms;
 
-namespace Sistema_de_Gestão
+namespace Sistema_de_Gestão.Controller
 {
 
     class Banco
@@ -75,7 +75,7 @@ namespace Sistema_de_Gestão
         }
 
 
-        public static void NovaPessoa(Pessoa pessoa)
+        public static void NovaPessoa(Model.Pessoa pessoa)
         {
             try
             {
@@ -108,7 +108,7 @@ namespace Sistema_de_Gestão
                 ConexaoBanco().Close();
             }
         }
-        public static void BuscarPaiComFilhos(Filhos filhos)
+        public static void BuscarPaiComFilhos(Model.Filhos filhos)
         {
             var cmd = ConexaoBanco().CreateCommand();
             cmd.CommandText = "SELECT * FROM tb_pessoas WHERE b_filhos = 1 ";

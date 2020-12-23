@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistema_de_Gestão
+namespace Sistema_de_Gestão.Views
 {
-    public partial class Cadastro_de_Filhos : Form
+    public partial class frmCadastroDeFilhos : Form
     {
-        public Cadastro_de_Filhos()
+        public frmCadastroDeFilhos()
         {
             InitializeComponent();
         }
@@ -21,7 +21,7 @@ namespace Sistema_de_Gestão
         {
             string vqueryCBpais = @"SELECT n_id_pessoa, t_nome, t_sobrenome FROM tb_pessoas WHERE b_filhos = 1 ORDER BY n_id_pessoa";
             cb_pais.Items.Clear();
-            cb_pais.DataSource = Banco.dql(vqueryCBpais);
+            cb_pais.DataSource = Controller.Banco.dql(vqueryCBpais);
             cb_pais.DisplayMember = "t_nome";
             cb_pais.ValueMember = "n_id_pessoa";
 
@@ -30,7 +30,7 @@ namespace Sistema_de_Gestão
 
         private void btn_salvar_Click(object sender, EventArgs e)
         {
-            Filhos filhos = new Filhos();
+            Model.Filhos filhos = new Model.Filhos();
 
             string vqueryFilhos = String.Format(@"
                 INSERT INTO tb_filhos 
@@ -39,8 +39,13 @@ namespace Sistema_de_Gestão
                     ('{0}','{1}','{2}','{3}')
                 ",cb_pais.SelectedValue.ToString(), tb_nomefilho.Text, tb_idadefilho.Text, tb_sexofilho.Text);
 
-            Banco.dml(vqueryFilhos);
+            Controller.Banco.dml(vqueryFilhos);
             MessageBox.Show("O filho de, " + cb_pais.Text+ "  foi inserido, com sucesso!");
+
+        }
+
+        private void btn_novo_Click(object sender, EventArgs e)
+        {
 
         }
     }

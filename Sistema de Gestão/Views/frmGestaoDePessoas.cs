@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
-namespace Sistema_de_Gestão
+namespace Sistema_de_Gestão.Views
 {
     public partial class Gestao_de_Pessoas : Form
     {
-        string origemCompleto = "";
-        string foto = "";
-        string pastaDestino = Globais.caminhoFotos;
-        string destinoCompleto = "";
+        string origemCompleto = "null";
+        string foto = "null";
+        string pastaDestino = Controller.Globais.caminhoFotos;
+        string destinoCompleto = "null";
 
         public Gestao_de_Pessoas()
         {
@@ -25,7 +25,7 @@ namespace Sistema_de_Gestão
 
         private void Gestao_de_Pessoas_Load(object sender, EventArgs e)
         {
-            dgw_pais.DataSource = Banco.ObterPessoasIdNomeCategoria();
+            dgw_pais.DataSource = Controller.Banco.ObterPessoasIdNomeCategoria();
             dgw_pais.Columns[0].Width = 50;
             dgw_pais.Columns[1].Width = 107;
             dgw_pais.Columns[2].Width = 100;
@@ -43,8 +43,8 @@ namespace Sistema_de_Gestão
             {
                 DataTable dt = new DataTable();
                 string vId = dgv.SelectedRows[0].Cells[0].Value.ToString();
-                Banco.ObterDadosPessoas(vId);
-                dt = Banco.ObterDadosPessoas(vId);
+                Controller.Banco.ObterDadosPessoas(vId);
+                dt = Controller.Banco.ObterDadosPessoas(vId);
                 tb_id.Text = dt.Rows[0].Field<Int64>("n_id_pessoa").ToString();
                 tb_nome.Text = dt.Rows[0].Field<string>("t_nome").ToString();
                 tb_sobrenome.Text = dt.Rows[0].Field<string>("t_sobrenome").ToString();
@@ -72,13 +72,13 @@ namespace Sistema_de_Gestão
 
                 DataTable dt1 = new DataTable();
                 string pId = dgv1.SelectedRows[0].Cells[0].Value.ToString();
-                dt1 = Banco.ObterFilhosPessoas(pId);
+                dt1 = Controller.Banco.ObterFilhosPessoas(pId);
             }
         }
 
         private void btn_Novo_Click(object sender, EventArgs e)
         {
-            Cadastro_de_Pessoas cadastro_De_Pessoas = new Cadastro_de_Pessoas();
+            frmCadastroDePessoas cadastro_De_Pessoas = new frmCadastroDePessoas();
             cadastro_De_Pessoas.ShowDialog();
         }
 
@@ -161,5 +161,6 @@ namespace Sistema_de_Gestão
             }
         
         }
+
     }
 }

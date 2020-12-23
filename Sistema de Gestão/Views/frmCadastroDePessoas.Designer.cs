@@ -1,6 +1,6 @@
-﻿namespace Sistema_de_Gestão
+﻿namespace Sistema_de_Gestão.Views
 {
-    partial class Cadastro_de_Pessoas
+    partial class frmCadastroDePessoas
     {
         /// <summary>
         /// Required designer variable.

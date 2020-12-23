@@ -1,6 +1,6 @@
-﻿namespace Sistema_de_Gestão
+﻿namespace Sistema_de_Gestão.Views
 {
-    partial class Cadastro_de_Filhos
+    partial class frmCadastroDeFilhos
     {
         /// <summary>
         /// Required designer variable.
@@ -167,8 +167,9 @@
             this.btn_novo.TabIndex = 4;
             this.btn_novo.Text = "Novo";
             this.btn_novo.UseVisualStyleBackColor = true;
+            this.btn_novo.Click += new System.EventHandler(this.btn_novo_Click);
             // 
-            // Cadastro_de_Filhos
+            // frmCadastroDeFilhos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -187,7 +188,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Cadastro_de_Filhos";
+            this.Name = "frmCadastroDeFilhos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Filhos";
             this.Load += new System.EventHandler(this.Cadastro_de_Filhos_Load);

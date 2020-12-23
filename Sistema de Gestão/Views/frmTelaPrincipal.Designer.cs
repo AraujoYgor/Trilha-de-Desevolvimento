@@ -1,4 +1,4 @@
-﻿namespace Sistema_de_Gestão
+﻿namespace Sistema_de_Gestão.Views
 {
     partial class frm_TelaPrincipal
     {
@@ -34,6 +34,8 @@
             this.fILHOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gESTÃOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pESSOASToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cALCULADORAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sALARIOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +46,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cADASTROToolStripMenuItem,
-            this.gESTÃOToolStripMenuItem});
+            this.gESTÃOToolStripMenuItem,
+            this.cALCULADORAToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(878, 33);
@@ -85,9 +88,24 @@
             // pESSOASToolStripMenuItem1
             // 
             this.pESSOASToolStripMenuItem1.Name = "pESSOASToolStripMenuItem1";
-            this.pESSOASToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.pESSOASToolStripMenuItem1.Size = new System.Drawing.Size(189, 34);
             this.pESSOASToolStripMenuItem1.Text = "PESSOAS";
             this.pESSOASToolStripMenuItem1.Click += new System.EventHandler(this.pESSOASToolStripMenuItem1_Click);
+            // 
+            // cALCULADORAToolStripMenuItem
+            // 
+            this.cALCULADORAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sALARIOToolStripMenuItem});
+            this.cALCULADORAToolStripMenuItem.Name = "cALCULADORAToolStripMenuItem";
+            this.cALCULADORAToolStripMenuItem.Size = new System.Drawing.Size(152, 29);
+            this.cALCULADORAToolStripMenuItem.Text = "CALCULADORA";
+            // 
+            // sALARIOToolStripMenuItem
+            // 
+            this.sALARIOToolStripMenuItem.Name = "sALARIOToolStripMenuItem";
+            this.sALARIOToolStripMenuItem.Size = new System.Drawing.Size(187, 34);
+            this.sALARIOToolStripMenuItem.Text = "SALARIO";
+            this.sALARIOToolStripMenuItem.Click += new System.EventHandler(this.sALARIOToolStripMenuItem_Click);
             // 
             // frm_TelaPrincipal
             // 
@@ -118,6 +136,8 @@
         private System.Windows.Forms.ToolStripMenuItem fILHOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gESTÃOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pESSOASToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cALCULADORAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sALARIOToolStripMenuItem;
     }
 }
 

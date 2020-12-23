@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
-namespace Sistema_de_Gestão
+namespace Sistema_de_Gestão.Views
 {
-    public partial class Cadastro_de_Pessoas : Form
+    public partial class frmCadastroDePessoas : Form
     {
-        string origemCompleto = "";
-        string foto = "";
-        string pastaDestino = Globais.caminhoFotos;
-        string destinoCompleto = "";
+        string origemCompleto = "null";
+        string foto = "null";
+        string pastaDestino = Controller.Globais.caminhoFotos;
+        string destinoCompleto = "null";
 
-        public Cadastro_de_Pessoas()
+        public frmCadastroDePessoas()
         {
             InitializeComponent();
         }
@@ -48,7 +48,7 @@ namespace Sistema_de_Gestão
                     }
                 }
             }
-            Pessoa pessoa = new Pessoa();
+            Model.Pessoa pessoa = new Model.Pessoa();
 
             pessoa.t_nome = tb_nome.Text;
             pessoa.t_sobrenome = tb_sobrenome.Text;
@@ -67,7 +67,7 @@ namespace Sistema_de_Gestão
             pessoa.b_filhos = cb_filho.Checked;
             pessoa.t_foto = pb_foto.ImageLocation;
 
-            Banco.NovaPessoa(pessoa);
+            Controller.Banco.NovaPessoa(pessoa);
 
             tb_nome.Clear();
             tb_sobrenome.Clear();
