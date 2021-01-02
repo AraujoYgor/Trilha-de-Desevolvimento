@@ -48,5 +48,10 @@ namespace Sistema_de_Gestão.Views
         {
 
         }
+
+        private void cb_pais_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

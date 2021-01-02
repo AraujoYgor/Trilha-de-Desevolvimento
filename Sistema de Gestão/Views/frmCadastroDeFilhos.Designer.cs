@@ -52,6 +52,7 @@
             this.cb_pais.Name = "cb_pais";
             this.cb_pais.Size = new System.Drawing.Size(242, 28);
             this.cb_pais.TabIndex = 0;
+            this.cb_pais.SelectedIndexChanged += new System.EventHandler(this.cb_pais_SelectedIndexChanged);
             // 
             // label1
             // 

@@ -24,3 +24,6 @@ D:\Projetos\Sistema de Gestão\Sistema de Gestão\obj\Debug\Sistema_de_Gestão.V
 D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\System.Data.SqlLocalDb.dll
 D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\System.Data.SqlLocalDb.xml
 D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\en-GB\System.Data.SqlLocalDb.resources.dll
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\BouncyCastle.Crypto.dll
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\itextsharp.dll
+D:\Projetos\Sistema de Gestão\Sistema de Gestão\bin\Debug\itextsharp.xml

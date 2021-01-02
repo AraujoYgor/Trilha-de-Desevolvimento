@@ -194,5 +194,27 @@ namespace Sistema_de_Gestão.Controller
                 throw ex;
             }
         }
+
+        //Funcoes da classe de calccular salario
+        public static DataTable ObterPessoasIdNome()
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = "SELECT n_id_pessoa as 'Código', t_nome as 'NOME' FROM tb_pessoas";
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

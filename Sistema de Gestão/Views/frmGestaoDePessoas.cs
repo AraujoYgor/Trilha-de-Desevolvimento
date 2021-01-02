@@ -13,10 +13,10 @@ namespace Sistema_de_Gestão.Views
 {
     public partial class Gestao_de_Pessoas : Form
     {
-        string origemCompleto = "null";
-        string foto = "null";
+        string origemCompleto = null;
+        string foto = null;
         string pastaDestino = Controller.Globais.caminhoFotos;
-        string destinoCompleto = "null";
+        string destinoCompleto = null;
 
         public Gestao_de_Pessoas()
         {

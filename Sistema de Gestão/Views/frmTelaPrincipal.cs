@@ -42,5 +42,6 @@ namespace Sistema_de_Gestão.Views
             Calcular_Salario calcular_Salario = new Calcular_Salario();
             calcular_Salario.ShowDialog();
         }
+
     }
 }

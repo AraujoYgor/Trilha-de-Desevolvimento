@@ -8,15 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using iTextSharp;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+
+
 
 namespace Sistema_de_Gestão.Views
 {
     public partial class frmCadastroDePessoas : Form
     {
-        string origemCompleto = "null";
-        string foto = "null";
+        string origemCompleto = null;
+        string foto = null;
         string pastaDestino = Controller.Globais.caminhoFotos;
-        string destinoCompleto = "null";
+        string destinoCompleto = null;
 
         public frmCadastroDePessoas()
         {
@@ -98,11 +103,6 @@ namespace Sistema_de_Gestão.Views
         }
 
         private void btn_excluir_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pb_foto_Click(object sender, EventArgs e)
         {
 
         }
@@ -197,6 +197,28 @@ namespace Sistema_de_Gestão.Views
                 }
             }
                 pb_foto.ImageLocation = origemCompleto;
+        }
+
+        private void documento_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Pen lapis = new Pen(Color.Black);
+
+            Point ponto1 = new Point(0, 0);
+            Point ponto2 = new Point(300, 500);
+
+            e.Graphics.DrawLine(lapis, ponto1, ponto2);
+        }
+
+        private void btn_Imprimir_Click_1(object sender, EventArgs e)
+        {
+            imprimir.Document = documento;
+            imprimir.ShowDialog();
+        }
+
+        private void btn_Visualizar_Click(object sender, EventArgs e)
+        {
+            visualizar.Document = documento;
+            visualizar.ShowDialog();
         }
     }
 }
